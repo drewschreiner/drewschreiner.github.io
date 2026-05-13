@@ -1,0 +1,501 @@
+:root {
+  --ink: #1f2a21;
+  --muted: #5e6b61;
+  --accent: #4ca86c;
+  --accent-dark: #22613b;
+  --paper: rgba(255, 252, 245, 0.94);
+  --paper-strong: rgba(255, 252, 245, 0.98);
+  --line: rgba(31, 42, 33, 0.14);
+  --shadow: 0 18px 60px rgba(0,0,0,0.30);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: #07111d;
+  line-height: 1.6;
+}
+
+/* Site-wide histology background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 10, 18, 0.46) 0%, rgba(2, 10, 18, 0.64) 100%),
+    url("../img/area-x-histology-background.jpg") center center / cover no-repeat;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(76,168,108,0.22), rgba(0,0,0,0) 42%),
+    linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.34));
+  z-index: -1;
+}
+
+a {
+  color: var(--accent-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+.wrap {
+  width: calc(100% - 48px);
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-nav {
+  padding: 22px 0 16px;
+  background: rgba(255, 252, 245, 0.90);
+  border-bottom: 1px solid rgba(255,255,255,0.36);
+  backdrop-filter: blur(8px);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 0.98rem;
+}
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-links a:hover {
+  border-color: var(--accent);
+}
+
+.hero {
+  padding: 44px 0 4px;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+}
+
+.section {
+  margin: 28px auto;
+  padding: clamp(23px, 4vw, 34px);
+  background: var(--paper);
+  border: 1px solid rgba(255,255,255,0.50);
+  border-radius: 22px;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.24);
+  backdrop-filter: blur(7px);
+}
+
+.hero-card {
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(255, 252, 245, 0.92);
+  border: 1px solid rgba(255,255,255,0.64);
+  box-shadow: var(--shadow);
+}
+
+.research-figure {
+  grid-column: 1 / -1;
+  margin: 28px 0 0;
+  width: 100%;
+  overflow: visible;
+}
+
+.research-figure img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin-left: 0%;
+  border-radius: 16px;
+}
+
+.intro-grid,
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 265px;
+  gap: 30px;
+  align-items: start;
+}
+
+.about-grid {
+  grid-template-columns: 265px minmax(0, 1fr);
+}
+
+.media-photo {
+  margin: 0;
+}
+
+.media-photo img {
+  display: block;
+  width: 240px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.20);
+}
+
+.headshot img {
+  object-position: 50% 24%;
+}
+
+.finch-photo img {
+  object-position: 52% 44%;
+}
+
+.caption {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.finch-photo {
+  width: 240px;
+  max-width: 100%;
+}
+
+.finch-photo .caption {
+  width: 100%;
+  margin: 10px auto 0;
+  text-align: center;
+}
+
+.kicker {
+  margin: 0 0 12px;
+  color: var(--accent-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+h1 {
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(2.3rem, 6.1vw, 3.85rem);
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.tagline {
+  margin: 22px 0 0;
+  max-width: 560px;
+  font-size: clamp(1.08rem, 2vw, 1.28rem);
+  line-height: 1.42;
+}
+
+.quick-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.button {
+  display: inline-block;
+  max-width: 100%;
+  padding: 9px 13px;
+  border: 1px solid rgba(34, 97, 59, 0.34);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.button:hover {
+  border-color: var(--accent);
+  background: white;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 1.42rem;
+  line-height: 1.2;
+}
+
+h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.section,
+.hero-card,
+.card,
+.pub-list li,
+.button {
+  overflow-wrap: anywhere;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.55);
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.news p,
+.pub-list li {
+  margin-bottom: 11px;
+}
+
+.news h3 {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.featured-news {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.featured-news p {
+  margin-bottom: 0;
+  font-size: 1.02rem;
+}
+
+.news-divider {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 24px 0 18px;
+}
+
+
+.pub-list {
+  margin: 0;
+  padding-left: 21px;
+}
+
+.page-title {
+  font-size: clamp(2.1rem, 6.2vw, 3.25rem);
+  margin: 0 0 14px;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  font-size: 1.08rem;
+  color: var(--ink);
+  max-width: 650px;
+}
+
+.small-note {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.publications-page {
+  margin-top: 28px;
+  background: var(--paper-strong);
+}
+
+.full-pub-list li {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--line);
+}
+
+.full-pub-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pub-citation {
+  margin-bottom: 8px;
+}
+
+.pub-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.84rem;
+}
+
+.pub-links a {
+  display: inline-block;
+  padding: 4px 9px;
+  border: 1px solid rgba(34, 97, 59, 0.22);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.62);
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.pub-links a:hover {
+  border-color: var(--accent);
+  background: white;
+}
+
+
+.footer {
+  padding: 26px 0 40px;
+  color: rgba(255,255,255,0.82);
+  font-size: 0.92rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.92);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 840px) {
+  body::before {
+    background:
+      linear-gradient(180deg, rgba(2, 10, 18, 0.50) 0%, rgba(2, 10, 18, 0.70) 100%),
+      url("../img/area-x-histology-background.jpg") center center / cover no-repeat;
+  }
+
+  .wrap {
+    max-width: 760px;
+  }
+
+  .intro-grid,
+  .about-grid,
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .media-photo img {
+    width: 240px;
+  }
+}
+
+@media (max-width: 520px) {
+  .wrap {
+    width: calc(100% - 28px);
+    max-width: none;
+  }
+
+  .site-nav {
+    padding-top: 18px;
+  }
+
+  .nav-inner {
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding-top: 28px;
+  }
+
+  .hero-card,
+  .section {
+    border-radius: 18px;
+    padding: 22px 18px;
+  }
+
+  .kicker {
+    font-size: 0.7rem;
+    letter-spacing: 0.10em;
+  }
+
+  h1 {
+    font-size: clamp(2.15rem, 12.4vw, 3.0rem);
+    letter-spacing: -0.025em;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+  }
+
+  .quick-links {
+    gap: 8px;
+  }
+
+  .button {
+    font-size: 0.86rem;
+    padding: 8px 11px;
+  }
+
+  .media-photo img {
+    width: 220px;
+  }
+}
