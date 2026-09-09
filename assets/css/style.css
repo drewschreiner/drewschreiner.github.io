@@ -499,3 +499,55 @@ p:last-child {
     width: 220px;
   }
 }
+
+/* Selected discoveries + future lab */
+
+.discovery-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.future-cards {
+  margin-top: 18px;
+}
+
+.card-label {
+  margin: 0 0 8px;
+  color: var(--accent-dark) !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.76rem !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.card-citation {
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+.card-citation a {
+  font-weight: 650;
+}
+
+.section-intro {
+  max-width: 800px;
+  margin-bottom: 0;
+}
+
+.future-outlook {
+  margin-top: 22px;
+}
+
+
+/* Collapse discovery cards on smaller screens */
+@media (max-width: 840px) {
+  .discovery-cards {
+    grid-template-columns: 1fr;
+  }
+}
